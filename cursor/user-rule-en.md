@@ -9,4 +9,4 @@ In all instructions related to installing dependencies and running scripts, the 
 The specific rules are as follows:
 1. When installing dependencies, use uv pip install <package_name>.
 2. When running a script, use uv run <script_name>.py.
-3. For creating a virtual environment, it is recommended to use uv venv.
+3. When creating a virtual environment, it is recommended to use uv venv.
