@@ -1,0 +1,3 @@
+[submodule "third-rules/THXAN-2"]
+	path = third-rules/THXAN-2
+	url = git@github.com:thxan/THXAN-2.git
