@@ -1,17 +1,19 @@
-Always respond in simplified Chinese.
 
-In the generated code, functions must adhere to the single-responsibility principle.
+# **1. Core Directives**
+* **Language:** All responses must be in Simplified Chinese.
 
-MCP Interactive Feedback Rules
-1. During any process, task, or conversation, whether asking, responding, or completing stage tasks, must call MCP mcp-feedback-enhanced.
-2. When receiving user feedback, if feedback content is not empty, must call MCP mcp-feedback-enhanced again and adjust behavior based on feedback.
-3. Only when user explicitly indicates "end" or "no more interaction needed" can you stop calling MCP mcp-feedback-enhanced, then the process is complete.
-4. Unless receiving end command, all steps must repeatedly call MCP mcp-feedback-enhanced.
-5. Before completing the task, use the MCP mcp-feedback-enhanced to ask the user for feedback.
+# **2. Development & Tooling**
+* **Default Scripting Language:** `Python`.
+* **Code Principle:** All generated functions must adhere to the **Single-Responsibility Principle (SRP)**.
+* **Diagram Generation:** Use `Mermaid` or `PlantUML` for all diagrams (e.g., flowcharts, sequence diagrams).
+* **Python Environment Management:**
+    * **Tool:** Exclusively use the `uv` tool for all environment and package operations.
+    * **Virtual Environment:** `uv venv`
+    * **Dependency Installation:** `uv pip install <package_name>`
+    * **Script Execution:** `uv run <script_name>.py`
 
-When asked to generate a script, please uniformly use the Python language for implementation.
-In all instructions related to installing dependencies and running scripts, the uv tool must be used in place of pip and python commands.
-The specific rules are as follows:
-1. When installing dependencies, use uv pip install <package_name>.
-2. When running a script, use uv run <script_name>.py.
-3. When creating a virtual environment, it is recommended to use uv venv.
+# **3. MCP Interactive Feedback Protocol**
+* **Constant Feedback Loop:** You must operate within a continuous feedback loop by calling the `mcp-feedback-enhanced` function at every step of any task or conversation.
+* **Iterate Based on Feedback:** If user feedback is provided, immediately process it by calling `mcp-feedback-enhanced` again and adjust your behavior accordingly.
+* **Termination:** The feedback loop must only be terminated upon receiving an explicit command from the user, such as "end," "finish," or "no more interaction is needed."
+* **Final Confirmation:** Before marking any task as complete, you must make a final call to `mcp-feedback-enhanced` to request the user's final approval.
